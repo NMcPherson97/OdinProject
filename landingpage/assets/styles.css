@@ -1,0 +1,146 @@
+*{
+    /* outline: 1px solid red; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    margin:0;
+}
+
+/* Header section */
+.head-container{
+    display: flex;
+    background-color: #1F2937;
+    color: white;
+    font-size: 24px;
+    flex-direction: column;
+    
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    align-items: right;
+    justify-content: flex-end;
+}
+
+.nav .links{
+    margin-right: 0;
+    text-align: right;
+}
+
+.head-container div{
+    flex: 1 1 auto;
+    margin-left: 75px;
+    margin-right: 75px;
+}
+
+.head-container .image{
+    flex: 1 1 auto;
+    align-self: flex-end;
+    justify-self: flex-start;
+    margin-top: -100px;
+    margin-bottom: 100px;
+}
+
+.filler-text{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    margin: 50px;
+    width: 320px;
+    height: 50px;
+}
+
+.filler-text .intro{
+    text-align: left;
+    margin: 0;
+}
+
+/* Hero main */
+h1.info{
+    text-align: center;
+}
+
+.image-row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 50px 0 50px 0;
+}
+
+.image-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-block{
+    height: 120px;
+    width: 120px;
+    border: 5px solid blue;
+}
+
+.image-item p{
+    margin: auto;
+    text-align: center;
+    width: 120px;
+}
+
+
+/* quote section */
+.quote{
+    background: #E5E7EB;
+    color: #1F2937;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 300;
+    font-style: italic;
+    height: 150px;
+    padding: 150px
+}
+
+/* Call to action */
+.action div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    background: #3882F6;
+    color: white;
+    margin: 100px;
+    padding: 30px 50px;
+    border-radius: 8px;
+}
+
+.action h3, .action p{
+    display: block;
+    font-weight: normal;
+    margin: 0;
+}
+
+.action p{
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+.action button{
+    background-color: #3882F6;
+    color: white;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+
+/* Footer */
+footer{
+    text-align: center;
+    color: white;
+    background-color: #1F2937;
+    padding: 50px;
+    margin: auto;
+}
