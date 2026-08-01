@@ -1,3 +1,12 @@
+const resultDiv = document.querySelector('#results')
+const winner = document.createElement('h2')
+
+const playerButtons = document.querySelectorAll('.btn')
+
+const choices = document.querySelector('#choices')
+const compChoice = document.createElement('h1')
+const playerChoice = document.createElement('h1')
+
 function getComputerChoice(){
     let choice 
     let roll = Math.random()
@@ -9,77 +18,78 @@ function getComputerChoice(){
         choice = 'Scissors'
     }
 
-    let choiceValueComp
-    switch(choice){
-        case 'Rock':
-            choiceValueComp = 1
-            break;
-        case 'Paper':
-            choiceValueComp = 2
-            break;
-        case 'Scissors':
-            choiceValueComp = 3
-        }
-    console.log(`Computer chooses: ${choice}`)
-    return choiceValueComp
+    compChoice.textContent = `Computer chooses: ${choice}`
+    choices.appendChild(compChoice)
+    return choice
 }
 
-function getHumanChoice(){
-    let humanChoice = prompt(`Choose Rock, Paper or Scissors: `).toLocaleLowerCase().trim()
-    let choiceValueHuman
+// function getHumanChoice(){
+//     let choice
+//     playerButtons.forEach(btn =>{ 
+//             choice = btn.textContent
+//         })
+//         choices.appendChild(playerChoice)
+//         return choice
+//     }
 
-    switch(humanChoice){
-        case 'rock':
-            choiceValueHuman = 1
-            break;
-        case 'paper':
-            choiceValueHuman = 2
-            break;
-        case 'scissors':
-            choiceValueHuman = 3
-            break;
-        default:
-            console.log('Invalid entry. Try again.')
-            break;
-    }
-    console.log(`Human chooses: ${humanChoice}`)
-    return choiceValueHuman
+function getHumanChoice(clickedText){
+    playerChoice.textContent = `Human chooses: ${clickedText}`
+    choices.appendChild(playerChoice)
+    return clickedText
 }
-
+    
 let humanScore = 0
 let computerScore = 0
+ 
+const playerScore = document.createElement('p')
+const compScore = document.createElement('p')
 
-function playGame(){
+
+
     
-    function playRound(){
-        let humanChoice = getHumanChoice()
-        let computerChoice = getComputerChoice()
+function playRound(humanChoice){
+    humanChoice = getHumanChoice(humanChoice)
+    const computerChoice = getComputerChoice()
 
-        if(
-           (humanChoice === 1 && computerChoice === 2) 
-        || (humanChoice === 2 && computerChoice === 3)
-        || (humanChoice === 3 && computerChoice === 1)){
-                computerScore += 1
-                console.log('Computer Wins!')}
-    
-        else if(
-           (humanChoice === 2 && computerChoice === 1) 
-        || (humanChoice === 3 && computerChoice === 2)
-        || (humanChoice === 1 && computerChoice === 3)){
-                humanScore += 1
-                console.log('Human Wins!')}
+    if(
+        (humanChoice === 'Rock' && computerChoice === 'Paper') 
+    || (humanChoice === 'Paper' && computerChoice === 'Scissors')
+    || (humanChoice === 'Scissors' && computerChoice === 'Rock')){
+            computerScore += 1
+            winner.textContent = 'Computer Wins!'}
 
-        else{console.log("It's a tie!")}
+    else if(
+        (humanChoice === 'Rock' && computerChoice === 'Scissors') 
+    || (humanChoice === 'Paper' && computerChoice === 'Rock')
+    || (humanChoice === 'Scissors' && computerChoice === 'Paper')){
+            humanScore += 1
+            winner.textContent = 'Human Wins!';}
 
-        console.log(`Human Score: ${humanScore}`)
-        console.log(`Computer Score: ${computerScore}`)
+    else{
+            winner.textContent = "It's a tie!"
     }
 
-    playRound()
-    playRound()
-    playRound()
-    playRound()
-    playRound()
+
+    playerScore.textContent = `Human Score: ${humanScore}`
+    compScore.textContent = `Computer Score: ${computerScore}`
+    resultDiv.appendChild(winner)
+    resultDiv.appendChild(playerScore)
+    resultDiv.appendChild(compScore)
 }
 
-playGame()
+playerButtons.forEach(btn => {
+    btn.addEventListener('click', event => {
+        playRound(btn.textContent)
+    })
+})
+
+
+// playerButtons.forEach(btn => {
+//     btn.addEventListener('click', event=>{
+//         playerChoice.textContent = `Human chooses: ${btn.textContent}`
+//         playRound()
+//     })
+// })
+
+
+
