@@ -57,6 +57,15 @@ body{
     margin: 0;
 }
 
+.filler-text button{
+    background-color: #3882F6;
+    color: white;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-weight: bold;
+}
+
 /* Hero main */
 h1.info{
     text-align: center;
@@ -64,7 +73,8 @@ h1.info{
 
 .image-row{
     display: flex;
-    justify-content: space-between;
+    gap: 1rem;
+    justify-content: space-evenly;
     width: 100%;
     margin: 50px 0 50px 0;
 }
@@ -111,6 +121,7 @@ h1.info{
     margin: 100px;
     padding: 30px 50px;
     border-radius: 8px;
+    white-space: wrap;
 }
 
 .action h3, .action p{
@@ -132,7 +143,6 @@ h1.info{
     border-radius: 8px;
     padding: 10px 24px;
     font-weight: bold;
-    white-space: nowrap;
 }
 
 
