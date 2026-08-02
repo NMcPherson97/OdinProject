@@ -7,9 +7,8 @@ function generateGrid(size){
 
     const totalSquares = size * size
     const percentageSize = 100/size
-    
 
-    for(let i = 0; i < 256; i++){
+    for(let i = 0; i < totalSquares; i++){
     const squareDiv = document.createElement('div')
     squareDiv.setAttribute('class','square')
 
@@ -17,11 +16,8 @@ function generateGrid(size){
     squareDiv.style.height = `${percentageSize}%`;
 
     containerDiv.appendChild(squareDiv)
-
-    squareDiv.addEventListener('mouseover', event => {
-        if(event){
-            squareDiv.style.backgroundColor = 'black'
-        }})
+    squareDiv.addEventListener('mouseover', () => 
+        {squareDiv.style.backgroundColor = 'black'})
     }
 
     // Erase button listener (Sits OUTSIDE the loops)
