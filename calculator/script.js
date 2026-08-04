@@ -5,7 +5,7 @@ function multiply(a,b){return a*b}
 function divide(a,b){
     const quotient = a / b
     if(b === 0){
-        console.log('Cannot divide by 0')
+        alert('Cannot divide by 0')
     }else{
         return quotient
     }
@@ -14,7 +14,7 @@ function divide(a,b){
 // Global variables that will be passed into operate() later
 let numOne = 0
 let numTwo = 0
-let currentOperator = null
+let currentOperator = ''
 
 // Operate function that calls a specific math function based on the
 // parameters set by user's button input
@@ -37,12 +37,11 @@ const display = document.querySelector('.display');
 // Operator buttons (+,-,*,/)
 const operationSymbols = document.querySelectorAll('.operators button');
 
-// Create and append clear button to div.nums 
-const numbers = document.querySelector('.nums');
-const clearBtn = document.createElement('button');
-clearBtn.textContent = 'Clear';
-clearBtn.setAttribute('class', 'clear-btn');
-numbers.appendChild(clearBtn);
+// Number buttons
+const numbers = document.querySelector('.nums')
+
+// Clear button
+const clearBtn = document.querySelector('.clear-btn')
 
 // Function that creates, displays, and appends number buttons 0-9 to div.nums
 function generateNumbers() {
@@ -56,22 +55,22 @@ function generateNumbers() {
 
     // Event listener that shows the number a user clicks in div.display
     numBtn.addEventListener('click', () => {
-      const displaySpan = document.createElement('span');
-      displaySpan.textContent = `${i}`;
-      display.appendChild(displaySpan);
-    
     // If operator is blank, update numOne variable
       if (currentOperator === '') {
-        numOne = `${i}` 
-      }else if(currentOperator !== '' && currentOperator !== '='){
-    // If operator is not blank, update numTwo
-        numTwo = `${i}`
-      }
-    });
+        numOne = i
+        const numOneSpan = document.createElement('span');
+        numOneSpan.setAttribute('class','numberOne')
+        numOneSpan.textContent = numOne;
+        display.appendChild(numOneSpan);
+      }else{
+        numTwo = i 
+        const numTwoSpan = document.createElement('span')
+        numTwoSpan.setAttribute('class','numberTwo')
+        numTwoSpan.textContent = numTwo;
+        display.appendChild(numTwoSpan);
+      }}
+    );
   }
-}
-generateNumbers();
-
 // Loop through operator buttons
 for (const btn of operationSymbols) {
 // Make each button responsive to a user click
@@ -79,37 +78,36 @@ for (const btn of operationSymbols) {
     
     if (btn.textContent === '=') {
     
-    if (numOne !== '' && currentOperator !== '' && numTwo !== ''){
+    if (!numOne || currentOperator !== '' || !numTwo){
+        let n1 = numOne;
+        let n2 = numTwo;
         
-        const n1 = parseInt(numOne);
-        const n2 = parseInt(numTwo);
-    
+    // Call and save copy of operate() with updated num and operator variables as args
         const result = operate(n1, n2, currentOperator);
-        
-        display.textContent = ''; 
-        const resultSpan = document.createElement('span');
-        resultSpan.textContent = result.toString();
-        display.appendChild(resultSpan);
-        
-        numOne = result.toString();
-        numTwo = ''
-        currentOperator = '';
+    // Update div.display to show answer of operation
+        display.textContent = result; 
       }
     }else{
+    // If currentOperator is not "=" then it will be the last user input
       currentOperator = btn.textContent;
       const displaySpan = document.createElement('span');
       displaySpan.textContent = btn.textContent;
       display.appendChild(displaySpan);
     }
+
   });
 }
+}
+
+generateNumbers();
+
 
 
 clearBtn.addEventListener('click', () => {
   display.textContent = '';
-//   numOne = '';
-//   numTwo = '';
-//   currentOperator = '';
+  // numOne = '';
+  // numTwo = '';
+  // currentOperator = '';
 });
 
 
