@@ -22,4 +22,10 @@
     text-align: center;
 }
 
+div.nums{
+  display: flex;
+  justify-content: center;
+}
+
+
 
