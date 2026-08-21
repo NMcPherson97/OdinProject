@@ -11,12 +11,12 @@ body{
     overflow: auto;
 }
 
+/* TODO: Fix header greeting text and add icons */
 .header{
     color: black;
     font-size: 48px;
     display: grid;
     grid-template-rows: 50% 50%;
-    border: 1px solid red;
 }
 
 .header input{
@@ -31,7 +31,6 @@ body{
     padding: 0px 0px 15px 70px;
 }
 
-/* TODO: Add Icons to Dashboard with white background/fill */
 .dashboard{
     text-align: left;
     color: white;
@@ -56,7 +55,7 @@ body{
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .dash-settings{
@@ -65,7 +64,7 @@ body{
     align-items: center;
     gap: 10px;
     padding-top: 50px;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .article{
