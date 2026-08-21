@@ -69,7 +69,7 @@ body{
 }
 
 .article{
-    background-color: lightslategray;
+    background-color: gainsboro;
     display: grid;
     grid-template: repeat(3,30%)/repeat(2,40%) 2fr;
     gap: 20px;

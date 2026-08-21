@@ -6,7 +6,7 @@ body{
 
 .container{
     display: grid;
-    grid-template: 20% 80%/20% 80%; 
+    grid-template: 20% 80%/1fr 4fr; 
     min-height: 100vh;
     overflow: auto;
 }
@@ -17,15 +17,29 @@ body{
     color: black;
     font-size: 48px;
     display: grid;
+    justify-content: center;
 }
 
 .header input{
     background-color: gainsboro;
     border-radius: 10px;
-    width: 500px;
-    padding-top: 10px;
-    margin: 10px;
+    width: 250px;
+    margin: 5px;
 }
+
+.header select{
+    background-color: gainsboro;
+    border-radius: 10px;
+    width: 250px;
+    margin: 5px;
+}
+
+.header button{
+    border-radius: 10px;
+    width: 250px;
+    margin: 5px;
+}
+
 
 .header p{
     font-size: 12px;
